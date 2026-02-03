@@ -1,0 +1,21 @@
+# --- Latest Google Gemini & LangChain (Stable 2026) ---
+langchain-google-genai
+langchain-core
+google-genai
+python-dotenv
+
+# --- Latest Image & Deep Learning (Stable 2026) ---
+pillow
+torch
+torchvision
+opencv-python
+
+# --- Latest Data & Vector Processing (Stable 2026) ---
+pandas
+numpy
+scikit-learn
+requests
+
+# --- Latest UI & Interaction (Stable 2026) ---
+gradio
+ipywidgets
