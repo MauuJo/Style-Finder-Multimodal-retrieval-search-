@@ -19,3 +19,4 @@ requests
 # --- Latest UI & Interaction (Stable 2026) ---
 gradio
 ipywidgets
+duckduckgo-search>=6.0.0
