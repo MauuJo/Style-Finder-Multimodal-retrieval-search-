@@ -1,7 +1,11 @@
 import logging
 import os
+from dotenv import load_dotenv  # <--- Added to load environment variables
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
+
+# Load environment variables (gets GOOGLE_API_KEY from .env)
+load_dotenv()
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -16,10 +20,16 @@ class GeminiVisionService:
         """
         Initialize the Gemini service.
         """
+        # Safety Check: Ensure the key is loaded
+        api_key = os.getenv("GOOGLE_API_KEY")
+        if not api_key:
+            raise ValueError("GOOGLE_API_KEY not found. Please check your .env file.")
+
         self.model = ChatGoogleGenerativeAI(
             model=model_id,
             temperature=temperature,
-            max_output_tokens=2048
+            max_output_tokens=2048,
+            google_api_key=api_key  # <--- Explicitly passing the key
         )
         logger.info("Gemini Vision Service Initialized.")
 
